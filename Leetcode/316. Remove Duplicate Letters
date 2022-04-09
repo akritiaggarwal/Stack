@@ -1,0 +1,20 @@
+class Solution:
+    def removeDuplicateLetters(self, s: str) -> str:
+        
+        hash_map=dict()
+        for i in range(len(s)):
+            char = s[i]
+            hash_map[char]=i
+
+        visited=set()
+        stack=[]
+
+        for i in range(len(s)):
+            char=s[i]
+            if char not in visited:
+                while stack and stack[-1]>char and hash_map[stack[-1]]>i:
+                    visited.remove(stack[-1])
+                    stack.pop()
+                stack.append(char)
+                visited.add(char)
+        return "".join(stack)
