@@ -1,5 +1,5 @@
 class Solution {
-public
+public:
     string removeOuterParentheses(string s) {
         stack<char> st;
         string ans="";
